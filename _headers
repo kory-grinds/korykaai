@@ -89,6 +89,37 @@ https://*
 /assets/images/*.svg
   Content-Type: image/svg+xml
 
+# Security for commonly scanned files - Return 404 with security headers
+/.env*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-cache, no-store, must-revalidate
+  Status: 404
+
+/.git*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-cache, no-store, must-revalidate
+  Status: 404
+
+/config.*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-cache, no-store, must-revalidate
+  Status: 404
+
+/wp-*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-cache, no-store, must-revalidate
+  Status: 404
+
+/admin*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-cache, no-store, must-revalidate
+  Status: 404
+
+/phpmyadmin*
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-cache, no-store, must-revalidate
+  Status: 404
+
 # API endpoints (if any)
 /api/*
   Access-Control-Allow-Origin: https://korykaai.com

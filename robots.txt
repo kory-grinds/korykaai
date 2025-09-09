@@ -17,11 +17,21 @@ Disallow: /private/
 Disallow: /admin/
 Disallow: /.git/
 Disallow: /node_modules/
-Disallow: /.env
+Disallow: /.env*
 Disallow: /package.json
 Disallow: /package-lock.json
 Disallow: /.gitignore
 Disallow: /README.md
+Disallow: /config.*
+Disallow: /wp-*
+Disallow: /phpmyadmin*
+Disallow: /database*
+Disallow: /backup*
+Disallow: /.htaccess
+Disallow: /.htpasswd
+Disallow: /composer.*
+Disallow: /yarn.lock
+Disallow: /.DS_Store
 
 # Disallow crawling of development and backup files
 Disallow: /*.bak$

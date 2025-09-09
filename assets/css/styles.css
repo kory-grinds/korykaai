@@ -1435,7 +1435,8 @@ section {
 /* Tools Section Styles */
 .tools {
     padding: var(--spacing-4xl) 0;
-    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    background: var(--background-dark);
+    color: white;
     position: relative;
 }
 
@@ -1446,7 +1447,7 @@ section {
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
 }
 
 .tools-header {
@@ -1456,7 +1457,7 @@ section {
 
 .tools-intro {
     font-size: var(--font-size-lg);
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.8);
     max-width: 600px;
     margin: var(--spacing-lg) auto 0;
     line-height: var(--line-height-relaxed);
@@ -1476,11 +1477,12 @@ section {
 }
 
 .tool-card {
-    background: white;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
     border-radius: 16px;
     padding: var(--spacing-3xl);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all var(--transition-fast);
     width: 100%;
     max-width: 700px;
@@ -1500,7 +1502,8 @@ section {
 
 .tool-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .tool-header {
@@ -1509,7 +1512,7 @@ section {
     gap: var(--spacing-lg);
     margin-bottom: var(--spacing-2xl);
     padding-bottom: var(--spacing-lg);
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .tool-icon {
@@ -1536,12 +1539,12 @@ section {
 .tool-title {
     font-size: var(--font-size-xl);
     font-weight: 600;
-    color: var(--text-primary);
+    color: white;
     margin: 0 0 var(--spacing-xs) 0;
 }
 
 .tool-description {
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.7);
     margin: 0;
     line-height: var(--line-height-relaxed);
 }
@@ -1561,7 +1564,7 @@ section {
 
 .input-label {
     font-weight: 600;
-    color: var(--text-primary);
+    color: rgba(255, 255, 255, 0.9);
     font-size: var(--font-size-sm);
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -1570,30 +1573,31 @@ section {
 .tool-textarea {
     width: 100%;
     padding: var(--spacing-lg);
-    border: 2px solid var(--border-color);
+    border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 12px;
     font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
     font-size: var(--font-size-sm);
     line-height: var(--line-height-relaxed);
     resize: vertical;
     transition: all var(--transition-fast);
-    background: var(--background-primary);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
 }
 
 .tool-textarea:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
-    background: white;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+    background: rgba(255, 255, 255, 0.15);
 }
 
 .tool-textarea.output {
-    background: var(--background-secondary);
-    color: var(--text-secondary);
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .tool-textarea::placeholder {
-    color: var(--text-light);
+    color: rgba(255, 255, 255, 0.4);
     font-style: italic;
 }
 
@@ -1664,7 +1668,7 @@ section {
 .color-picker {
     width: 80px;
     height: 50px;
-    border: 2px solid var(--border-color);
+    border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 12px;
     cursor: pointer;
     transition: all var(--transition-fast);
@@ -1679,17 +1683,20 @@ section {
 .hex-input {
     flex: 1;
     padding: var(--spacing-md) var(--spacing-lg);
-    border: 2px solid var(--border-color);
+    border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 12px;
     font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
     font-size: var(--font-size-base);
     transition: all var(--transition-fast);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
 }
 
 .hex-input:focus {
     outline: none;
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.2);
+    background: rgba(255, 255, 255, 0.15);
 }
 
 .palette-section {
@@ -1703,9 +1710,9 @@ section {
     grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
     gap: var(--spacing-md);
     padding: var(--spacing-lg);
-    background: var(--background-secondary);
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 12px;
-    border: 2px dashed var(--border-color);
+    border: 2px dashed rgba(255, 255, 255, 0.2);
     min-height: 120px;
 }
 
@@ -1716,7 +1723,7 @@ section {
     align-items: center;
     justify-content: center;
     gap: var(--spacing-sm);
-    color: var(--text-light);
+    color: rgba(255, 255, 255, 0.5);
     text-align: center;
 }
 
@@ -1782,13 +1789,14 @@ section {
     align-items: center;
     gap: var(--spacing-sm);
     padding: var(--spacing-md) var(--spacing-lg);
-    background: white;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
     border-radius: 12px;
-    box-shadow: var(--shadow-light);
-    color: var(--text-secondary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    color: rgba(255, 255, 255, 0.9);
     font-size: var(--font-size-sm);
     font-weight: 500;
-    border: 1px solid var(--border-color);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .feature-badge svg {
@@ -1798,21 +1806,21 @@ section {
 }
 
 .tools-cta {
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.8);
     font-size: var(--font-size-base);
     margin: 0;
     line-height: var(--line-height-relaxed);
 }
 
 .tools-link {
-    color: var(--primary-color);
+    color: var(--primary-light);
     text-decoration: none;
     font-weight: 600;
     transition: color var(--transition-fast);
 }
 
 .tools-link:hover {
-    color: var(--primary-dark);
+    color: white;
     text-decoration: underline;
 }
 

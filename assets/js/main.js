@@ -22,6 +22,7 @@
         setupSmoothScrolling();
         setupFormValidation();
         setupAnimations();
+        setupDeveloperTools();
     }
 
     /**
@@ -466,6 +467,244 @@
         document.addEventListener('DOMContentLoaded', init);
     } else {
         init();
+    }
+
+    /**
+     * Set up developer tools functionality
+     */
+    function setupDeveloperTools() {
+        // JSON Formatter Tool
+        const jsonInput = document.getElementById('json-input');
+        const jsonOutput = document.getElementById('json-output');
+        const jsonStatus = document.getElementById('json-status');
+        const formatJsonBtn = document.getElementById('format-json');
+        const minifyJsonBtn = document.getElementById('minify-json');
+        const validateJsonBtn = document.getElementById('validate-json');
+        const clearJsonBtn = document.getElementById('clear-json');
+
+        if (formatJsonBtn) {
+            formatJsonBtn.addEventListener('click', () => formatJSON(false));
+            minifyJsonBtn.addEventListener('click', () => formatJSON(true));
+            validateJsonBtn.addEventListener('click', validateJSON);
+            clearJsonBtn.addEventListener('click', clearJSON);
+        }
+
+        function formatJSON(minify = false) {
+            const input = jsonInput.value.trim();
+            if (!input) {
+                showToolStatus(jsonStatus, 'Please enter some JSON to format.', 'error');
+                return;
+            }
+
+            try {
+                const parsed = JSON.parse(input);
+                const formatted = minify ? JSON.stringify(parsed) : JSON.stringify(parsed, null, 2);
+                jsonOutput.value = formatted;
+                showToolStatus(jsonStatus, `JSON ${minify ? 'minified' : 'formatted'} successfully!`, 'success');
+            } catch (error) {
+                showToolStatus(jsonStatus, `Invalid JSON: ${error.message}`, 'error');
+                jsonOutput.value = '';
+            }
+        }
+
+        function validateJSON() {
+            const input = jsonInput.value.trim();
+            if (!input) {
+                showToolStatus(jsonStatus, 'Please enter some JSON to validate.', 'error');
+                return;
+            }
+
+            try {
+                JSON.parse(input);
+                showToolStatus(jsonStatus, 'Valid JSON! ✅', 'success');
+            } catch (error) {
+                showToolStatus(jsonStatus, `Invalid JSON: ${error.message}`, 'error');
+            }
+        }
+
+        function clearJSON() {
+            jsonInput.value = '';
+            jsonOutput.value = '';
+            jsonStatus.textContent = '';
+            jsonStatus.className = 'tool-status';
+        }
+
+        // Base64 Encoder/Decoder Tool
+        const base64Input = document.getElementById('base64-input');
+        const base64Output = document.getElementById('base64-output');
+        const base64Status = document.getElementById('base64-status');
+        const encodeBase64Btn = document.getElementById('encode-base64');
+        const decodeBase64Btn = document.getElementById('decode-base64');
+        const clearBase64Btn = document.getElementById('clear-base64');
+
+        if (encodeBase64Btn) {
+            encodeBase64Btn.addEventListener('click', encodeBase64);
+            decodeBase64Btn.addEventListener('click', decodeBase64);
+            clearBase64Btn.addEventListener('click', clearBase64);
+        }
+
+        function encodeBase64() {
+            const input = base64Input.value;
+            if (!input) {
+                showToolStatus(base64Status, 'Please enter some text to encode.', 'error');
+                return;
+            }
+
+            try {
+                const encoded = btoa(unescape(encodeURIComponent(input)));
+                base64Output.value = encoded;
+                showToolStatus(base64Status, 'Text encoded to Base64 successfully!', 'success');
+            } catch (error) {
+                showToolStatus(base64Status, `Encoding error: ${error.message}`, 'error');
+            }
+        }
+
+        function decodeBase64() {
+            const input = base64Input.value.trim();
+            if (!input) {
+                showToolStatus(base64Status, 'Please enter Base64 text to decode.', 'error');
+                return;
+            }
+
+            try {
+                const decoded = decodeURIComponent(escape(atob(input)));
+                base64Output.value = decoded;
+                showToolStatus(base64Status, 'Base64 decoded successfully!', 'success');
+            } catch (error) {
+                showToolStatus(base64Status, `Decoding error: Invalid Base64 string.`, 'error');
+            }
+        }
+
+        function clearBase64() {
+            base64Input.value = '';
+            base64Output.value = '';
+            base64Status.textContent = '';
+            base64Status.className = 'tool-status';
+        }
+
+        // Color Palette Generator Tool
+        const baseColor = document.getElementById('base-color');
+        const baseColorHex = document.getElementById('base-color-hex');
+        const colorPalette = document.getElementById('color-palette');
+        const generatePaletteBtn = document.getElementById('generate-palette');
+        const randomPaletteBtn = document.getElementById('random-palette');
+
+        if (generatePaletteBtn) {
+            generatePaletteBtn.addEventListener('click', generatePalette);
+            randomPaletteBtn.addEventListener('click', generateRandomPalette);
+            baseColor.addEventListener('input', updateHexInput);
+            baseColorHex.addEventListener('input', updateColorInput);
+        }
+
+        function updateHexInput() {
+            baseColorHex.value = baseColor.value;
+        }
+
+        function updateColorInput() {
+            const hex = baseColorHex.value;
+            if (/^#[0-9A-F]{6}$/i.test(hex)) {
+                baseColor.value = hex;
+            }
+        }
+
+        function generatePalette() {
+            const baseHex = baseColor.value;
+            const colors = generateColorPalette(baseHex);
+            displayColorPalette(colors);
+        }
+
+        function generateRandomPalette() {
+            const randomHex = '#' + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0');
+            baseColor.value = randomHex;
+            baseColorHex.value = randomHex;
+            const colors = generateColorPalette(randomHex);
+            displayColorPalette(colors);
+        }
+
+        function generateColorPalette(baseHex) {
+            const hsl = hexToHsl(baseHex);
+            const colors = [];
+
+            // Generate complementary and analogous colors
+            const variations = [
+                { h: hsl.h, s: hsl.s, l: Math.max(0.1, hsl.l - 0.3) }, // Darker
+                { h: hsl.h, s: hsl.s, l: Math.max(0.1, hsl.l - 0.15) }, // Dark
+                { h: hsl.h, s: hsl.s, l: hsl.l }, // Base
+                { h: hsl.h, s: hsl.s, l: Math.min(0.9, hsl.l + 0.15) }, // Light
+                { h: hsl.h, s: hsl.s, l: Math.min(0.9, hsl.l + 0.3) }, // Lighter
+                { h: (hsl.h + 180) % 360, s: hsl.s, l: hsl.l }, // Complementary
+                { h: (hsl.h + 30) % 360, s: hsl.s, l: hsl.l }, // Analogous 1
+                { h: (hsl.h - 30 + 360) % 360, s: hsl.s, l: hsl.l }, // Analogous 2
+            ];
+
+            variations.forEach(color => {
+                colors.push(hslToHex(color.h, color.s, color.l));
+            });
+
+            return colors;
+        }
+
+        function displayColorPalette(colors) {
+            colorPalette.innerHTML = '';
+            colors.forEach(color => {
+                const swatch = document.createElement('div');
+                swatch.className = 'color-swatch';
+                swatch.style.backgroundColor = color;
+                swatch.innerHTML = `<span class="color-code">${color.toUpperCase()}</span>`;
+                swatch.addEventListener('click', () => copyToClipboard(color.toUpperCase()));
+                colorPalette.appendChild(swatch);
+            });
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                showNotification(`Copied ${text} to clipboard!`, 'success');
+            }).catch(() => {
+                showNotification('Failed to copy to clipboard', 'error');
+            });
+        }
+
+        // Color conversion utilities
+        function hexToHsl(hex) {
+            const r = parseInt(hex.slice(1, 3), 16) / 255;
+            const g = parseInt(hex.slice(3, 5), 16) / 255;
+            const b = parseInt(hex.slice(5, 7), 16) / 255;
+
+            const max = Math.max(r, g, b);
+            const min = Math.min(r, g, b);
+            let h, s, l = (max + min) / 2;
+
+            if (max === min) {
+                h = s = 0;
+            } else {
+                const d = max - min;
+                s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+                switch (max) {
+                    case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+                    case g: h = (b - r) / d + 2; break;
+                    case b: h = (r - g) / d + 4; break;
+                }
+                h /= 6;
+            }
+
+            return { h: h * 360, s: s, l: l };
+        }
+
+        function hslToHex(h, s, l) {
+            h = h / 360;
+            const a = s * Math.min(l, 1 - l);
+            const f = n => {
+                const k = (n + h * 12) % 12;
+                const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
+                return Math.round(255 * color).toString(16).padStart(2, '0');
+            };
+            return `#${f(0)}${f(8)}${f(4)}`;
+        }
+
+        function showToolStatus(statusElement, message, type) {
+            statusElement.textContent = message;
+            statusElement.className = `tool-status ${type}`;
+        }
     }
 
     // Expose public methods for external use

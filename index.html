@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Kory Kaai - CEO & Founder of KAAI TECH LLC, CTO & Software Developer with 16+ years of experience. Leading innovative software products including Clientsdock, Vibe Reviewer, Door Ledger, and more. Based in Vicenza, Italy.">
-    <meta name="keywords" content="CEO, Founder, KAAI TECH LLC, CTO, Chief Technology Officer, Software Developer, Clientsdock, Vibe Reviewer, Door Ledger, Kory Grinds, IT Leadership, Systems Modernization, Full-Stack Development, React, Django, Python, Java, Kory Kaai">
+    <meta name="description" content="Kory Kaai - CEO & Founder of KAAI TECH LLC, CTO & Software Developer with 16+ years of experience. Free developer tools: JSON formatter, Base64 encoder/decoder, color palette generator. Leading innovative software products including Clientsdock, Vibe Reviewer, Door Ledger, and more. Based in Vicenza, Italy.">
+    <meta name="keywords" content="JSON formatter, Base64 encoder, color palette generator, developer tools, free online tools, CEO, Founder, KAAI TECH LLC, CTO, Chief Technology Officer, Software Developer, Clientsdock, Vibe Reviewer, Door Ledger, Kory Grinds, IT Leadership, Systems Modernization, Full-Stack Development, React, Django, Python, Java, Kory Kaai">
     <meta name="author" content="Kory Kaai">
     <meta name="robots" content="index, follow">
     
@@ -77,8 +77,9 @@
                         while aligning technology strategies with organizational goals and implementing scalable solutions.
                     </p>
                     <div class="hero-actions">
-                        <a href="#company" class="btn btn-primary">Company & Products</a>
-                        <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                        <a href="#tools" class="btn btn-primary">Free Developer Tools</a>
+                        <a href="#company" class="btn btn-secondary">Company & Products</a>
+                        <a href="#contact" class="btn btn-outline">Contact Me</a>
                     </div>
                     
                     <!-- Social Media Links -->
@@ -375,6 +376,104 @@
                         <h4>Bachelor of Science in Business Administration</h4>
                         <p>University of Maryland Global Campus</p>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Developer Tools Section -->
+        <section id="tools" class="tools" aria-labelledby="tools-title">
+            <div class="container">
+                <h2 id="tools-title" class="section-title">Free Developer Tools</h2>
+                <p class="tools-intro">
+                    Useful tools for developers, designers, and digital professionals. All tools work offline and your data never leaves your browser.
+                </p>
+                
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <h3 class="tool-title">JSON Formatter & Validator</h3>
+                        <p class="tool-description">Format, validate, and beautify JSON data with syntax highlighting and error detection.</p>
+                        
+                        <div class="tool-interface">
+                            <div class="tool-input">
+                                <label for="json-input">Paste your JSON here:</label>
+                                <textarea id="json-input" placeholder='{"name": "example", "data": [1, 2, 3]}' rows="8"></textarea>
+                            </div>
+                            
+                            <div class="tool-actions">
+                                <button id="format-json" class="btn btn-primary">Format JSON</button>
+                                <button id="minify-json" class="btn btn-secondary">Minify JSON</button>
+                                <button id="validate-json" class="btn btn-secondary">Validate Only</button>
+                                <button id="clear-json" class="btn btn-outline">Clear</button>
+                            </div>
+                            
+                            <div class="tool-output">
+                                <label for="json-output">Formatted JSON:</label>
+                                <textarea id="json-output" readonly rows="8"></textarea>
+                                <div id="json-status" class="tool-status"></div>
+                            </div>
+                            
+                            <div class="tool-features">
+                                <div class="feature-item">✅ Syntax validation</div>
+                                <div class="feature-item">✅ Pretty formatting</div>
+                                <div class="feature-item">✅ Error highlighting</div>
+                                <div class="feature-item">✅ Minification</div>
+                                <div class="feature-item">🔒 Privacy-first (offline)</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <h3 class="tool-title">Base64 Encoder/Decoder</h3>
+                        <p class="tool-description">Encode and decode Base64 strings for data transmission and storage.</p>
+                        
+                        <div class="tool-interface">
+                            <div class="tool-input">
+                                <label for="base64-input">Enter text or Base64:</label>
+                                <textarea id="base64-input" placeholder="Hello World!" rows="4"></textarea>
+                            </div>
+                            
+                            <div class="tool-actions">
+                                <button id="encode-base64" class="btn btn-primary">Encode to Base64</button>
+                                <button id="decode-base64" class="btn btn-secondary">Decode from Base64</button>
+                                <button id="clear-base64" class="btn btn-outline">Clear</button>
+                            </div>
+                            
+                            <div class="tool-output">
+                                <label for="base64-output">Result:</label>
+                                <textarea id="base64-output" readonly rows="4"></textarea>
+                                <div id="base64-status" class="tool-status"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <h3 class="tool-title">Color Palette Generator</h3>
+                        <p class="tool-description">Generate beautiful color palettes for your web projects with hex codes.</p>
+                        
+                        <div class="tool-interface">
+                            <div class="tool-input">
+                                <label for="base-color">Base Color:</label>
+                                <input type="color" id="base-color" value="#667eea">
+                                <input type="text" id="base-color-hex" value="#667eea" placeholder="#667eea">
+                            </div>
+                            
+                            <div class="tool-actions">
+                                <button id="generate-palette" class="btn btn-primary">Generate Palette</button>
+                                <button id="random-palette" class="btn btn-secondary">Random Palette</button>
+                            </div>
+                            
+                            <div class="color-palette" id="color-palette">
+                                <!-- Generated palette will appear here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="more-tools">
+                    <p class="more-tools-text">
+                        <strong>More tools coming soon!</strong><br>
+                        Need a specific developer tool? <a href="#contact">Let me know</a> and I'll build it.
+                    </p>
                 </div>
             </div>
         </section>

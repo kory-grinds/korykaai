@@ -97,14 +97,14 @@ RewriteEngine On
         Header set Cache-Control "public, max-age=31536000, immutable"
     </FilesMatch>
     
-    # Cache CSS and JS for 1 month
+    # Cache CSS and JS for 1 month (disabled for debugging)
     <FilesMatch "\.(css|js)$">
-        Header set Cache-Control "public, max-age=2592000"
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
     </FilesMatch>
     
-    # Cache HTML for 1 day
+    # Cache HTML for 1 day (disabled for debugging)
     <FilesMatch "\.(html|htm)$">
-        Header set Cache-Control "public, max-age=86400"
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
     </FilesMatch>
 </IfModule>
 

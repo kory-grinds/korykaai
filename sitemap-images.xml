@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    
+    <!-- Profile Images for Kory Kaai -->
+    <url>
+        <loc>https://korykaai.com/</loc>
+        <image:image>
+            <image:loc>https://korykaai.com/assets/images/me.jpg</image:loc>
+            <image:title>Kory Kaai - CEO and Founder of KAAI TECH LLC</image:title>
+            <image:caption>Professional headshot of Kory Kaai, CEO and Founder of KAAI TECH LLC, Chief Technology Officer and Software Developer with 16+ years of experience in IT leadership and systems modernization. Based in Vicenza, Italy.</image:caption>
+            <image:geo_location>Vicenza, Italy</image:geo_location>
+            <image:license>https://korykaai.com/</image:license>
+        </image:image>
+    </url>
+    
+</urlset>

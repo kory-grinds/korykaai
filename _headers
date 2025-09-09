@@ -1,0 +1,97 @@
+# Cloudflare Headers for Korykaai Portfolio
+# Security, Performance, and SEO Optimization
+
+# Global headers for all pages
+/*
+  # Security Headers
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  X-XSS-Protection: 1; mode=block
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), speaker=(), vibrate=(), fullscreen=(self), sync-xhr=()
+  
+  # Content Security Policy
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.google-analytics.com https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';
+  
+  # Remove server information
+  Server: 
+  X-Powered-By: 
+
+# HTTPS-only headers
+https://*
+  # Strict Transport Security
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+# Static assets caching (1 year)
+/assets/images/*
+  Cache-Control: public, max-age=31536000, immutable
+  
+/assets/icons/*
+  Cache-Control: public, max-age=31536000, immutable
+  
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# CSS and JavaScript caching (1 month)
+/assets/css/*
+  Cache-Control: public, max-age=2592000
+  
+/assets/js/*
+  Cache-Control: public, max-age=2592000
+
+# HTML caching (1 day)
+/*.html
+  Cache-Control: public, max-age=86400
+  
+/
+  Cache-Control: public, max-age=86400
+
+# Manifest and service worker
+/site.webmanifest
+  Cache-Control: public, max-age=604800
+  Content-Type: application/manifest+json
+
+# Sitemap and robots.txt
+/sitemap.xml
+  Cache-Control: public, max-age=86400
+  Content-Type: application/xml
+  
+/robots.txt
+  Cache-Control: public, max-age=86400
+  Content-Type: text/plain
+
+# Font files with proper MIME types
+/assets/fonts/*.woff2
+  Content-Type: font/woff2
+  
+/assets/fonts/*.woff
+  Content-Type: font/woff
+  
+/assets/fonts/*.ttf
+  Content-Type: font/ttf
+  
+/assets/fonts/*.otf
+  Content-Type: font/otf
+
+# Image optimization headers
+/assets/images/*.jpg
+  Content-Type: image/jpeg
+  
+/assets/images/*.jpeg
+  Content-Type: image/jpeg
+  
+/assets/images/*.png
+  Content-Type: image/png
+  
+/assets/images/*.webp
+  Content-Type: image/webp
+  
+/assets/images/*.svg
+  Content-Type: image/svg+xml
+
+# API endpoints (if any)
+/api/*
+  Access-Control-Allow-Origin: https://korykaai.com
+  Access-Control-Allow-Methods: GET, POST, OPTIONS
+  Access-Control-Allow-Headers: Content-Type, Authorization
+  Access-Control-Max-Age: 86400

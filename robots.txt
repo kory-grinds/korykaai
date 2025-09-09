@@ -1,0 +1,75 @@
+# Robots.txt for Korykaai Portfolio Website
+# Optimized for SEO and Cloudflare compatibility
+
+# Allow all search engines to crawl the site
+User-agent: *
+Allow: /
+
+# Allow access to CSS and JavaScript files for proper rendering
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /assets/images/
+Allow: /assets/icons/
+Allow: /assets/fonts/
+
+# Disallow access to sensitive or unnecessary files
+Disallow: /private/
+Disallow: /admin/
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: /.env
+Disallow: /package.json
+Disallow: /package-lock.json
+Disallow: /.gitignore
+Disallow: /README.md
+
+# Disallow crawling of development and backup files
+Disallow: /*.bak$
+Disallow: /*.tmp$
+Disallow: /*.log$
+Disallow: /*~$
+
+# Allow specific bots with custom rules
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+# Social media bots for rich previews
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+# Block known bad bots and scrapers
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+# Sitemap location
+Sitemap: https://korykaai.com/sitemap.xml
+
+# Additional sitemaps for different content types
+Sitemap: https://korykaai.com/sitemap-images.xml

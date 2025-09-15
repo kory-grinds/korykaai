@@ -120,8 +120,24 @@ https://*
   Cache-Control: no-cache, no-store, must-revalidate
   Status: 404
 
-# Instagram-specific lightweight version
+# Instagram-specific lightweight versions
 /instagram.html
+  Cache-Control: public, max-age=3600
+  Content-Type: text/html; charset=utf-8
+  X-Robots-Tag: noindex, nofollow
+
+/bio.html
+  Cache-Control: public, max-age=3600
+  Content-Type: text/html; charset=utf-8
+  X-Robots-Tag: noindex, nofollow
+
+/ig.html
+  Cache-Control: public, max-age=3600
+  Content-Type: text/html; charset=utf-8
+  X-Robots-Tag: noindex, nofollow
+  X-Frame-Options: ALLOWALL
+  
+/redirect.html
   Cache-Control: public, max-age=3600
   Content-Type: text/html; charset=utf-8
   X-Robots-Tag: noindex, nofollow

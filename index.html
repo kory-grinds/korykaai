@@ -881,6 +881,23 @@
         </div>
     </footer>
 
+    <!-- Instagram Detection Script -->
+    <script>
+        // Detect Instagram in-app browser and redirect to lightweight version
+        (function() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            const isInstagram = /Instagram/i.test(userAgent) || 
+                               /FBAN|FBAV/i.test(userAgent) || 
+                               /FB_IAB/i.test(userAgent);
+            
+            // Only redirect if coming from Instagram and not already on instagram.html
+            if (isInstagram && !window.location.pathname.includes('instagram.html')) {
+                // Use replace to avoid back button issues
+                window.location.replace('/instagram.html');
+            }
+        })();
+    </script>
+    
     <!-- Scripts -->
     <script src="assets/js/main.js"></script>
 </body>

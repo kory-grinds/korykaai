@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kory Kaai - CEO & Founder of KAAI TECH LLC">
+    
+    <!-- Minimal Open Graph for Instagram -->
+    <meta property="og:title" content="Kory Kaai - CEO & Founder">
+    <meta property="og:description" content="CEO & Founder of KAAI TECH LLC - Software Developer & CTO">
+    <meta property="og:image" content="https://korykaai.com/assets/images/me.jpg">
+    <meta property="og:url" content="https://korykaai.com">
+    
+    <title>Kory Kaai - CEO & Founder</title>
+    
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;background:linear-gradient(135deg,#6366f1,#4f46e5);min-height:100vh;padding:16px;color:#333;line-height:1.4}
+        .c{max-width:400px;margin:0 auto;text-align:center}
+        .p{margin-bottom:24px}
+        .pi{width:80px;height:80px;border-radius:50%;margin:0 auto 16px;border:3px solid #fff;box-shadow:0 2px 12px rgba(0,0,0,.15)}
+        .pt{color:#fff;font-size:20px;margin-bottom:4px;font-weight:600}
+        .ps{color:rgba(255,255,255,.9);font-size:14px;margin-bottom:2px}
+        .l{display:flex;flex-direction:column;gap:12px}
+        .li{background:#fff;border-radius:8px;padding:12px 16px;text-decoration:none;color:#333;font-weight:500;font-size:15px;box-shadow:0 1px 6px rgba(0,0,0,.1);transition:transform .15s ease;display:flex;align-items:center;justify-content:center;min-height:44px;position:relative}
+        .li:active{transform:scale(.98)}
+        .pr{background:#6366f1;color:#fff}
+        .se{background:#f59e0b;color:#fff}
+        .ex{position:relative}
+        .ex::after{content:'↗';position:absolute;right:12px;font-size:12px;opacity:.6}
+        .so{margin-top:20px;display:flex;justify-content:center;gap:16px}
+        .sl{color:rgba(255,255,255,.8);font-size:12px;text-decoration:none;transition:color .2s}
+        .sl:hover{color:#fff}
+        @media(max-width:480px){.c{padding:0 8px}.pt{font-size:18px}.li{font-size:14px;padding:10px 14px}}
+    </style>
+</head>
+<body>
+    <div class="c">
+        <div class="p">
+            <img src="assets/images/me.jpg" alt="Kory Kaai" class="pi">
+            <h1 class="pt">Kory Kaai</h1>
+            <p class="ps">CEO & Founder of KAAI TECH LLC</p>
+            <p class="ps">CTO | Software Developer</p>
+            <p class="ps">📍 Vicenza, Italy</p>
+        </div>
+        
+        <div class="l">
+            <a href="#" class="li pr" onclick="openExternal('https://korykaai.com')">
+                🏠 View Full Portfolio
+            </a>
+            
+            <a href="#" class="li" onclick="openExternal('https://korykaai.com/#tools')">
+                🛠️ Free Developer Tools
+            </a>
+            
+            <a href="#" class="li ex" onclick="openExternal('https://clientsdock.com')">
+                💼 Clientsdock
+            </a>
+            
+            <a href="#" class="li ex" onclick="openExternal('https://vibereviewer.com')">
+                ⭐ Vibe Reviewer
+            </a>
+            
+            <a href="#" class="li ex" onclick="openExternal('https://doorledger.com')">
+                🏠 Door Ledger
+            </a>
+            
+            <a href="#" class="li ex" onclick="openExternal('https://korygrinds.com')">
+                🎯 Kory Grinds
+            </a>
+            
+            <a href="#" class="li se" onclick="openExternal('https://kaaitech.com')">
+                🚀 KAAI TECH LLC
+            </a>
+            
+            <a href="mailto:email@korykaai.com" class="li">
+                📧 Contact Me
+            </a>
+        </div>
+        
+        <div class="so">
+            <a href="#" class="sl" onclick="openExternal('https://github.com/kory-grinds')">GitHub</a>
+            <a href="#" class="sl" onclick="openExternal('https://linkedin.com/in/korykaai')">LinkedIn</a>
+            <a href="#" class="sl" onclick="openExternal('https://twitter.com/korykaai')">Twitter</a>
+        </div>
+    </div>
+
+    <script>
+        function openExternal(url) {
+            // For Instagram in-app browser, try multiple methods to force external browser
+            try {
+                // Method 1: Create a temporary link and click it (most reliable)
+                const a = document.createElement('a');
+                a.href = url;
+                a.target = '_blank';
+                a.rel = 'noopener noreferrer';
+                a.style.display = 'none';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                
+                // Method 2: Fallback to window.open
+                setTimeout(() => {
+                    const newWindow = window.open(url, '_blank', 'noopener,noreferrer');
+                    if (!newWindow) {
+                        window.location.href = url;
+                    }
+                }, 50);
+                
+            } catch (e) {
+                // Final fallback - direct navigation
+                window.location.href = url;
+            }
+        }
+        
+        // Preload critical image for instant display
+        const img = new Image();
+        img.src = 'assets/images/me.jpg';
+        
+        // Add touch feedback
+        document.addEventListener('DOMContentLoaded', () => {
+            const links = document.querySelectorAll('.li');
+            links.forEach(link => {
+                link.addEventListener('touchstart', () => {
+                    link.style.transform = 'scale(0.95)';
+                });
+                link.addEventListener('touchend', () => {
+                    link.style.transform = '';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

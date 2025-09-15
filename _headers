@@ -120,6 +120,12 @@ https://*
   Cache-Control: no-cache, no-store, must-revalidate
   Status: 404
 
+# Instagram-specific lightweight version
+/instagram.html
+  Cache-Control: public, max-age=3600
+  Content-Type: text/html; charset=utf-8
+  X-Robots-Tag: noindex, nofollow
+
 # API endpoints (if any)
 /api/*
   Access-Control-Allow-Origin: https://korykaai.com

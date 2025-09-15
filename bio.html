@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kory Kaai - Links">
+    <title>Kory Kaai - Links</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .profile {
+            margin-bottom: 30px;
+            padding-top: 20px;
+        }
+        
+        .profile-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 4px solid white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        
+        .profile h1 {
+            color: white;
+            font-size: 28px;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        
+        .profile p {
+            color: rgba(255,255,255,0.95);
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .notice {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .notice strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .link-item {
+            background: white;
+            border-radius: 12px;
+            padding: 18px 24px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            font-size: 16px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 60px;
+            position: relative;
+        }
+        
+        .link-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+        }
+        
+        .link-item.primary {
+            background: #6366f1;
+            color: white;
+        }
+        
+        .link-item.secondary {
+            background: #f59e0b;
+            color: white;
+        }
+        
+        .link-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .link-emoji {
+            font-size: 20px;
+        }
+        
+        .link-text {
+            flex: 1;
+            text-align: left;
+        }
+        
+        .external-icon {
+            font-size: 14px;
+            opacity: 0.7;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            color: rgba(255,255,255,0.8);
+            font-size: 14px;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s ease;
+        }
+        
+        .social-link:hover {
+            color: white;
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+            
+            .profile h1 {
+                font-size: 24px;
+            }
+            
+            .link-item {
+                padding: 16px 20px;
+                font-size: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="profile">
+            <img src="assets/images/me.jpg" alt="Kory Kaai" class="profile-image">
+            <h1>Kory Kaai</h1>
+            <p>CEO & Founder of KAAI TECH LLC</p>
+            <p>CTO | Software Developer</p>
+            <p>📍 Vicenza, Italy</p>
+        </div>
+        
+        <div class="notice">
+            <strong>💡 For the best experience:</strong>
+            Tap the "⋯" menu above and select "Open in Browser"
+        </div>
+        
+        <div class="links">
+            <a href="https://korykaai.com" target="_blank" rel="noopener noreferrer" class="link-item primary">
+                <div class="link-content">
+                    <span class="link-emoji">🏠</span>
+                    <span class="link-text">Full Portfolio & About Me</span>
+                </div>
+                <span class="external-icon">↗</span>
+            </a>
+            
+            <a href="https://korykaai.com/#tools" target="_blank" rel="noopener noreferrer" class="link-item">
+                <div class="link-content">
+                    <span class="link-emoji">🛠️</span>
+                    <span class="link-text">Free Developer Tools</span>
+                </div>
+                <span class="external-icon">↗</span>
+            </a>
+            
+            <a href="https://clientsdock.com" target="_blank" rel="noopener noreferrer" class="link-item">
+                <div class="link-content">
+                    <span class="link-emoji">💼</span>
+                    <span class="link-text">Clientsdock</span>
+                </div>
+                <span class="external-icon">↗</span>
+            </a>
+            
+            <a href="https://vibereviewer.com" target="_blank" rel="noopener noreferrer" class="link-item">
+                <div class="link-content">
+                    <span class="link-emoji">⭐</span>
+                    <span class="link-text">Vibe Reviewer</span>
+                </div>
+                <span class="external-icon">↗</span>
+            </a>
+            
+            <a href="https://doorledger.com" target="_blank" rel="noopener noreferrer" class="link-item">
+                <div class="link-content">
+                    <span class="link-emoji">🏠</span>
+                    <span class="link-text">Door Ledger</span>
+                </div>
+                <span class="external-icon">↗</span>
+            </a>
+            
+            <a href="https://korygrinds.com" target="_blank" rel="noopener noreferrer" class="link-item">
+                <div class="link-content">
+                    <span class="link-emoji">🎯</span>
+                    <span class="link-text">Kory Grinds</span>
+                </div>
+                <span class="external-icon">↗</span>
+            </a>
+            
+            <a href="https://kaaitech.com" target="_blank" rel="noopener noreferrer" class="link-item secondary">
+                <div class="link-content">
+                    <span class="link-emoji">🚀</span>
+                    <span class="link-text">KAAI TECH LLC</span>
+                </div>
+                <span class="external-icon">↗</span>
+            </a>
+            
+            <a href="mailto:email@korykaai.com" class="link-item">
+                <div class="link-content">
+                    <span class="link-emoji">📧</span>
+                    <span class="link-text">Contact Me</span>
+                </div>
+            </a>
+        </div>
+        
+        <div class="footer">
+            <div class="social-links">
+                <a href="https://github.com/kory-grinds" target="_blank" rel="noopener noreferrer" class="social-link">GitHub</a>
+                <a href="https://linkedin.com/in/korykaai" target="_blank" rel="noopener noreferrer" class="social-link">LinkedIn</a>
+                <a href="https://twitter.com/korykaai" target="_blank" rel="noopener noreferrer" class="social-link">Twitter</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
